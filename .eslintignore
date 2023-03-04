@@ -1,0 +1,7 @@
+/node_modules/*
+
+/configs/*
+/scripts/*
+
+.eslintrc.js
+craco.config.js
