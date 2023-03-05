@@ -19,6 +19,10 @@ const gameSlice = createSlice({
     gameFeared(state) {
       state.status = 'fearing'
     },
+
+    decrementTimer(state) {
+      state.timer -= 1
+    },
   },
   extraReducers(builder) {
     builder.addCase(initApp, (state) => {
@@ -29,6 +33,6 @@ const gameSlice = createSlice({
   },
 })
 
-export const { gameStarted, gameLosed, gameWinned, gameFeared } = gameSlice.actions
+export const { gameStarted, gameLosed, gameWinned, gameFeared, decrementTimer } = gameSlice.actions
 
 export default gameSlice.reducer

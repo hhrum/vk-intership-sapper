@@ -26,8 +26,7 @@ export const revealCell = (board: Board, x: number, y: number): Board => {
 
   for (let i = -1; i <= 1; i += 1) {
     for (let j = -1; j <= 1; j += 1) {
-      if (x === y && x === 0) continue
-
+      if (i === j && i === 0) continue
       updatedBoard = revealCell(updatedBoard, x + i, y + j)
     }
   }

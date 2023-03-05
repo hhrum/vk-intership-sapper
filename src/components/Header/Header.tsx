@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from 'store'
 import Pad from 'components/Pad/Pad'
 import Sprite, { SpriteProps } from 'components/Sprite/Sprite'
 import SpriteItems from 'components/Sprite/SpriteItems'
+import Timer from 'components/Timer/Timer'
 
 import { initApp } from 'store/reducers/actions'
 import { getFlagsCount } from 'store/reducers/board/BoardSelector'
@@ -50,7 +51,7 @@ function Header() {
         />
       </div>
       <div className="header__pad">
-        <Pad value={45} />
+        <Timer />
       </div>
     </div>
   )

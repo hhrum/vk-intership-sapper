@@ -1,13 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { PayloadAction } from '@reduxjs/toolkit'
 import { call, put, select, takeEvery } from 'redux-saga/effects'
+import checkWin from 'utils/board/checkWin'
 import copyBoard from 'utils/board/copyBoard'
 import generateMines from 'utils/board/generateMines'
 
 import { leftClickOnCellAction } from 'store/reducers/board/BoardActions'
 import { boardUpdated, minesGenerated } from 'store/reducers/board/BoardReducer'
 import BoardSelector from 'store/reducers/board/BoardSelector'
-import { gameLosed, gameStarted } from 'store/reducers/game/GameReducer'
+import { gameLosed, gameStarted, gameWinned } from 'store/reducers/game/GameReducer'
 
 import Board, { revealCell } from 'domain/Board'
 import Cell, { openCell } from 'domain/Cell'
@@ -41,6 +42,10 @@ export function* leftClickOnCellWorker({ payload: cell }: PayloadAction<Cell>) {
   updatedBoard = yield call(revealCell, updatedBoard, cell.x, cell.y)
 
   yield put(boardUpdated(updatedBoard))
+
+  if (checkWin(updatedBoard)) {
+    yield put(gameWinned())
+  }
 }
 
 export default function* leftClickOnCellWatcher() {

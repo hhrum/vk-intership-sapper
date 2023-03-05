@@ -23,6 +23,7 @@ function CellSprite({ cell }: CellSpriteProps) {
       return SpriteItems.CellMineDitaneted
     }
     if ((gameStatus === 'lose' || gameStatus === 'win') && cell.isMine) {
+      if (cell.isFlag) return SpriteItems.CellMineDetected
       return SpriteItems.CellMine
     }
 

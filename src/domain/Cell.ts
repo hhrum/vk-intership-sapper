@@ -10,7 +10,6 @@ export default interface Cell {
 
 export const openCell = (cell: Cell): Cell => {
   cell.isOpen = true
-  cell.isFlag = 0
   cell.isQuest = false
   return cell
 }
