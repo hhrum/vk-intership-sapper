@@ -5,7 +5,7 @@ export default interface Cell {
   isOpen: boolean
   isFlag: 0 | 1
   isQuest: boolean
-  mineAround?: number
+  minesAround?: number
 }
 
 export const openCell = (cell: Cell): Cell => {

@@ -1,4 +1,4 @@
-type GameStatus = 'waiting' | 'playing' | 'holding' | 'lose' | 'win'
+export type GameStatus = 'waiting' | 'playing' | 'fearing' | 'lose' | 'win'
 
 export default interface Game {
   maxFlagsCount: number

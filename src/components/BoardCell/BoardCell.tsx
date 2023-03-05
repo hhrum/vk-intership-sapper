@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from 'store'
 
 import CellSprite from 'components/CellSprite/CellSprite'
 
-import { openCellAction } from 'store/reducers/board/BoardReducer'
+import { leftClickOnCellAction, rightClickOnCellAction } from 'store/reducers/board/BoardActions'
 import { getBoardCell } from 'store/reducers/board/BoardSelector'
 
 import './BoardCell.scss'
@@ -24,13 +24,16 @@ function BoardCell({ rowIndex, cellIndex }: BoardCellProps) {
     if (!cell) return
     if (cell.isOpen) return
 
-    dispatch(openCellAction(cell))
-    console.log('left click')
+    dispatch(leftClickOnCellAction(cell))
   }
 
   const rightClickHandler = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
-    console.log('right click')
+
+    if (!cell) return
+    if (cell.isOpen) return
+
+    dispatch(rightClickOnCellAction(cell))
   }
 
   if (!cell) return null
