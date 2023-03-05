@@ -15,6 +15,10 @@ module.exports = {
 
   importOrder: [
     "^components/(.*)$",
+    "^containers/(.*)$",
+    "^assets/(.*)$",
+    "^store/(.*)$",
+    "^domain/(.*)$",
     "^[./]",
   ],
   importOrderSeparation: true,
